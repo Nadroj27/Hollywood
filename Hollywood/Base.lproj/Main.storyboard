@@ -52,6 +52,9 @@
                                 <state key="normal" title="NEXT">
                                     <color key="titleColor" red="0.37254901959999998" green="0.3294117647" blue="0.63529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="dI9-Ee-GjE" kind="show" id="kIe-fa-vVj"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This application was created as part of a technical test for DxC by Jordan Vacca." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajQ-EW-GX4">
                                 <rect key="frame" x="13" y="676" width="388" height="40"/>
@@ -71,7 +74,73 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="66.666666666666671" y="-36.684782608695656"/>
+            <point key="canvasLocation" x="-243" y="-48"/>
+        </scene>
+        <!--HomeVC-->
+        <scene sceneID="fiB-c4-qug">
+            <objects>
+                <viewController id="dI9-Ee-GjE" customClass="HomeVC" customModule="Hollywood" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rjQ-QV-OHE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pwl-7V-knO">
+                                <rect key="frame" x="0.0" y="52" width="414" height="620"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yr3-ga-xCM">
+                                    <size key="itemSize" width="150" height="150"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeCell" id="wIA-a1-xxy" customClass="HomeCollectionViewCell" customModule="Hollywood" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Foa-LQ-v6n" customClass="CardHighlight" customModule="Cards">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="Foa-LQ-v6n" firstAttribute="leading" secondItem="wIA-a1-xxy" secondAttribute="leading" id="VsQ-Wh-Qhp"/>
+                                            <constraint firstAttribute="trailing" secondItem="Foa-LQ-v6n" secondAttribute="trailing" id="ebE-os-MdV"/>
+                                            <constraint firstAttribute="bottom" secondItem="Foa-LQ-v6n" secondAttribute="bottom" id="gny-Fo-pBJ"/>
+                                            <constraint firstItem="Foa-LQ-v6n" firstAttribute="top" secondItem="wIA-a1-xxy" secondAttribute="top" id="vXy-eJ-sxC"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="Card" destination="Foa-LQ-v6n" id="1U5-bH-0qJ"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="dI9-Ee-GjE" id="2XA-Am-mLF"/>
+                                    <outlet property="delegate" destination="dI9-Ee-GjE" id="r1s-bU-pcW"/>
+                                </connections>
+                            </collectionView>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VMO-Eg-YFA">
+                                <rect key="frame" x="0.0" y="687" width="414" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <tabBarItem systemItem="favorites" id="DNv-2e-XXs"/>
+                                    <tabBarItem systemItem="more" id="Gjp-G6-9S8"/>
+                                </items>
+                            </tabBar>
+                        </subviews>
+                        <color key="backgroundColor" red="0.37254901959999998" green="0.3294117647" blue="0.63529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="PkE-qt-gE3"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ulW-eT-iXb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="678.26086956521749" y="-59.510869565217398"/>
         </scene>
     </scenes>
     <resources>
