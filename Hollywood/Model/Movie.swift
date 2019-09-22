@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct Movie : Codable {
+struct Movie : Decodable {
     let popularity: Double?
     let voteCount:String?
     let video: Bool?

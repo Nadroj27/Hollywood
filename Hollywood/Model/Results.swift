@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-struct Results: Codable {
+struct Results: Decodable {
     let page: Int?
     let totalResults: Int?
     let totalPages: Int?
-    let results: [Movie]?
+    let results: [Movie]
 }

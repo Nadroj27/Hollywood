@@ -12,7 +12,6 @@ class CardVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
 

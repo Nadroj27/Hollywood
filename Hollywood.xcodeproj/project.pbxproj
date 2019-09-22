@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1707EEFF2336D6F0004BB95A /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1707EEFE2336D6F0004BB95A /* SearchVC.swift */; };
+		1707EF012336DB77004BB95A /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1707EF002336DB77004BB95A /* SearchTableViewCell.swift */; };
 		1744434B2336483000B8DB0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1744434A2336483000B8DB0D /* AppDelegate.swift */; };
 		1744434D2336483000B8DB0D /* PresentationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1744434C2336483000B8DB0D /* PresentationVC.swift */; };
 		174443502336483000B8DB0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1744434E2336483000B8DB0D /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1707EEFE2336D6F0004BB95A /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		1707EF002336DB77004BB95A /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		174443472336483000B8DB0D /* Hollywood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hollywood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1744434A2336483000B8DB0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1744434C2336483000B8DB0D /* PresentationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationVC.swift; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 				1744434C2336483000B8DB0D /* PresentationVC.swift */,
 				177E03E623365C1400650C4E /* HomeVC.swift */,
 				177E03E82336B67B00650C4E /* CardVC.swift */,
+				1707EEFE2336D6F0004BB95A /* SearchVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				175DB0DB2336CBC000819957 /* HomeCollectionViewCell.swift */,
+				1707EF002336DB77004BB95A /* SearchTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -316,6 +322,7 @@
 				"${BUILT_PRODUCTS_DIR}/Cards/Cards.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/Player/Player.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/TMDBSwift/TMDBSwift.framework",
 			);
@@ -327,6 +334,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cards.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Player.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TMDBSwift.framework",
 			);
@@ -368,8 +376,10 @@
 				177E03E723365C1400650C4E /* HomeVC.swift in Sources */,
 				177E03E92336B67B00650C4E /* CardVC.swift in Sources */,
 				174443532336483000B8DB0D /* Hollywood.xcdatamodeld in Sources */,
+				1707EF012336DB77004BB95A /* SearchTableViewCell.swift in Sources */,
 				1744434D2336483000B8DB0D /* PresentationVC.swift in Sources */,
 				175DB0DC2336CBC000819957 /* HomeCollectionViewCell.swift in Sources */,
+				1707EEFF2336D6F0004BB95A /* SearchVC.swift in Sources */,
 				17B2467D23365527008AED28 /* Utilities.swift in Sources */,
 				1744434B2336483000B8DB0D /* AppDelegate.swift in Sources */,
 				17B2467F2336565D008AED28 /* Movie.swift in Sources */,

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 typealias CompletionHandler = (_ Success: Bool) -> ()
 
@@ -15,6 +14,7 @@ typealias CompletionHandler = (_ Success: Bool) -> ()
 
 let BASE_URL = "https://api.themoviedb.org/3/"
 let TOP_RATED_MOVIES_URL = "\(BASE_URL)movie/top_rated?api_key=\(API_KEY)"
+let SEARCH_MOVIE_URL = "\(BASE_URL)search/movie?api_key=\(API_KEY)&query="
 
 // KEY
 
@@ -22,4 +22,5 @@ let API_KEY = "516f5c8c4ced7304653d2bc5d0906add"
 
 //GLOBAL
 
-var results:Results?
+var TOP_MOVIE:Results?
+var SEARCH_RESULT:Results?
