@@ -10,5 +10,7 @@ import UIKit
 import Cards
 
 class HomeCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var Card: CardHighlight!
+    
+    @IBOutlet weak var homeCard: CardHighlight!
+    
 }

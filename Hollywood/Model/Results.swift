@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 struct Results: Decodable {
     var page: Int?
