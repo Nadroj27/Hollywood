@@ -22,7 +22,6 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let screenSize: CGRect = UIScreen.main.bounds
         
         self.view.addSubview(searchResultsTableView)
         searchResultsTableView.delegate = self
@@ -61,10 +60,29 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         if (searchActive && SEARCH_RESULT!.results.isEmpty) {
             return 0
         } else {
-            print(SEARCH_RESULT?.results.count)
             return (SEARCH_RESULT?.results.count ?? 10)
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "DetailMovieVC") as! DetailMovieVC
+        vc.titre = SEARCH_RESULT!.results[indexPath.row].title!
+        vc.origin = SEARCH_RESULT!.results[indexPath.row].original_language!
+        vc.release = SEARCH_RESULT!.results[indexPath.row].release_date!
+        vc.resume = SEARCH_RESULT!.results[indexPath.row].overview!
+        
+        if (SEARCH_RESULT!.results[indexPath.row].poster_path == nil) {
+            vc.image = UIImage(named: "justnothing")!
+        } else {
+            let image = URL(string: IMAGE_URL + SEARCH_RESULT!.results[indexPath.row].poster_path!)
+            let data = try? Data(contentsOf: image!)
+            vc.image = UIImage(data: data!)!
+        }
+        self.present(vc, animated: true , completion: nil)
+    }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if searchActive {
@@ -72,7 +90,15 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             cell!.movieTitle.text = SEARCH_RESULT!.results[indexPath.row].title
             cell!.movieTitle.sizeToFit()
             cell!.movieNote.text = "\(SEARCH_RESULT!.results[indexPath.row].vote_average!)"
-            cell?.movieNote.sizeToFit()
+            cell!.movieNote.sizeToFit()
+            
+            if (SEARCH_RESULT!.results[indexPath.row].poster_path == nil) {
+                cell!.movieImg.image = UIImage(named: "justnothing")
+            } else {
+                let image = URL(string: IMAGE_URL + SEARCH_RESULT!.results[indexPath.row].poster_path!)
+                let data = try? Data(contentsOf: image!)
+                cell!.movieImg.image = UIImage(data: data!)
+            }
             return cell!
         }
         let sell = tableView.dequeueReusableCell(withIdentifier: "SearchCell") as? SearchTableViewCell
@@ -132,10 +158,8 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             if response.result.error == nil {
                 guard let data = response.data else { return }
                 do {
-                    print("JE VAIS LA REQUETTE")
                     let decoder = JSONDecoder()
                     SEARCH_RESULT = try decoder.decode(Results.self, from: data)
-                    print(SEARCH_RESULT ?? "non")
                     DispatchQueue.main.async {
                     self.searchResultsTableView.reloadData()
                     }

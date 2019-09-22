@@ -22,6 +22,7 @@
 		17B2467D23365527008AED28 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B2467C23365527008AED28 /* Utilities.swift */; };
 		17B2467F2336565D008AED28 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B2467E2336565D008AED28 /* Movie.swift */; };
 		17B2468123365746008AED28 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B2468023365746008AED28 /* Results.swift */; };
+		17C18E432337B23100D80581 /* DetailMovieVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C18E422337B23100D80581 /* DetailMovieVC.swift */; };
 		22B79C4E3CF3431857E5AC15 /* Pods_HollywoodTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F58E394A7193BE8D4EDBA1 /* Pods_HollywoodTests.framework */; };
 		A8A9DFBA0315E945F3F68170 /* Pods_Hollywood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F266FEE28C827EF50BE2388C /* Pods_Hollywood.framework */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		17B2467C23365527008AED28 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		17B2467E2336565D008AED28 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		17B2468023365746008AED28 /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
+		17C18E422337B23100D80581 /* DetailMovieVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieVC.swift; sourceTree = "<group>"; };
 		47AB6F14645AFD06D77187DE /* Pods-Hollywood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hollywood.release.xcconfig"; path = "Target Support Files/Pods-Hollywood/Pods-Hollywood.release.xcconfig"; sourceTree = "<group>"; };
 		C3F58E394A7193BE8D4EDBA1 /* Pods_HollywoodTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HollywoodTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0FD3491CDC480AD554CFAF9 /* Pods-HollywoodTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HollywoodTests.debug.xcconfig"; path = "Target Support Files/Pods-HollywoodTests/Pods-HollywoodTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				177E03E623365C1400650C4E /* HomeVC.swift */,
 				177E03E82336B67B00650C4E /* CardVC.swift */,
 				1707EEFE2336D6F0004BB95A /* SearchVC.swift */,
+				17C18E422337B23100D80581 /* DetailMovieVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				174443532336483000B8DB0D /* Hollywood.xcdatamodeld in Sources */,
 				1707EF012336DB77004BB95A /* SearchTableViewCell.swift in Sources */,
 				1744434D2336483000B8DB0D /* PresentationVC.swift in Sources */,
+				17C18E432337B23100D80581 /* DetailMovieVC.swift in Sources */,
 				175DB0DC2336CBC000819957 /* HomeCollectionViewCell.swift in Sources */,
 				1707EEFF2336D6F0004BB95A /* SearchVC.swift in Sources */,
 				17B2467D23365527008AED28 /* Utilities.swift in Sources */,
