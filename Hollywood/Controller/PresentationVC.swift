@@ -13,10 +13,6 @@ class PresentationVC: UIViewController {
     @IBOutlet weak var presentationImg: UIImageView!
     @IBOutlet weak var presentationBtn: UIButton!
     
-    override func viewDidAppear(_ animated: Bool) {
-        navigationController?.navigationBar.barStyle = .black
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
