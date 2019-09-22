@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 struct Results: Decodable {
-    let page: Int?
-    let totalResults: Int?
-    let totalPages: Int?
-    let results: [Movie]
-}
+    var page: Int?
+    var total_results: Int?
+    var total_pages: Int?
+    var results: [Movie]
+    }

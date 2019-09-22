@@ -11,17 +11,17 @@ import UIKit
 
 struct Movie : Decodable {
     let popularity: Double?
-    let voteCount:String?
+    let vote_count:Int?
     let video: Bool?
-    let posterPath: Double?
+    let poster_path: String?
     let id: Int?
     let adult: Bool?
-    let backdropPath: String?
-    let originalLanguage: String?
-    let originalTitle : String?
-    let genreIds: [Int]?
+    let backdrop_path: String?
+    let original_language: String?
+    let original_title : String?
+    let genre_ids: [Int]?
     let title : String?
-    let voteAverage : Int?
+    let vote_average : Double?
     let overview: String?
     let release_date: String?
 }

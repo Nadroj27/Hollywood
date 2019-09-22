@@ -229,6 +229,7 @@
                     <tabBarItem key="tabBarItem" title="Item 1" id="C7i-m1-Bhh"/>
                     <connections>
                         <outlet property="searchBar" destination="Phu-YR-7O3" id="w0u-qK-5Qg"/>
+                        <outlet property="searchResultsTableView" destination="5dQ-rM-X3J" id="ONz-8c-wka"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kLH-7G-Heu" userLabel="First Responder" sceneMemberID="firstResponder"/>
