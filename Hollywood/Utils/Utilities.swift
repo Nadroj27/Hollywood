@@ -15,6 +15,7 @@ typealias CompletionHandler = (_ Success: Bool) -> ()
 let BASE_URL = "https://api.themoviedb.org/3/"
 let TOP_RATED_MOVIES_URL = "\(BASE_URL)movie/top_rated?api_key=\(API_KEY)"
 let SEARCH_MOVIE_URL = "\(BASE_URL)search/movie?api_key=\(API_KEY)&query="
+let IMAGE_URL = "https://image.tmdb.org/t/p/w500/"
 
 // KEY
 
