@@ -19,7 +19,6 @@ class PresentationVC: UIViewController {
     }
 
     func setupUI() {
-        
         //Pic
         presentationImg.layer.cornerRadius = self.presentationImg.frame.size.width / 2
         presentationImg.clipsToBounds = true
@@ -31,7 +30,6 @@ class PresentationVC: UIViewController {
         presentationImg.layer.shadowRadius = 0.0
         
         //Btn
-        
         presentationBtn.layer.cornerRadius = 5
         presentationBtn.layer.borderWidth = 1
         presentationBtn.layer.borderColor = UIColor.white.cgColor
