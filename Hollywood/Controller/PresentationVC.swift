@@ -13,13 +13,16 @@ class PresentationVC: UIViewController {
     @IBOutlet weak var presentationImg: UIImageView!
     @IBOutlet weak var presentationBtn: UIButton!
     
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.navigationBar.barStyle = .black
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
 
     func setupUI() {
-        //Pic
         presentationImg.layer.cornerRadius = self.presentationImg.frame.size.width / 2
         presentationImg.clipsToBounds = true
         presentationImg.layer.borderWidth = 3
@@ -29,11 +32,9 @@ class PresentationVC: UIViewController {
         presentationImg.layer.shadowOpacity = 1.0
         presentationImg.layer.shadowRadius = 0.0
         
-        //Btn
         presentationBtn.layer.cornerRadius = 5
         presentationBtn.layer.borderWidth = 1
         presentationBtn.layer.borderColor = UIColor.white.cgColor
-        
     }
 }
 

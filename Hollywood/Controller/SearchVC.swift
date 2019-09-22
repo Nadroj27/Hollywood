@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-import NVActivityIndicatorView
 import SnapKit
 
 class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
@@ -18,38 +17,16 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     let searchController = UISearchController(searchResultsController: nil)
     var searchActive: Bool = false
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.view.addSubview(searchResultsTableView)
-        searchResultsTableView.delegate = self
-        searchResultsTableView.dataSource = self
-        searchResultsTableView.backgroundColor = #colorLiteral(red: 0.3725490196, green: 0.3294117647, blue: 0.6352941176, alpha: 1)
-        searchResultsTableView.isUserInteractionEnabled = true
-        searchResultsTableView.isScrollEnabled = true
-        searchResultsTableView.alwaysBounceVertical = true
         setupUI()
     }
     
     func setupUI() {
-        searchController.obscuresBackgroundDuringPresentation = true
+        searchResultsTableView.delegate = self
+        searchResultsTableView.dataSource = self
         searchController.searchBar.placeholder = "Search a movie..."
-        self.navigationItem.searchController = searchController
-    }
-
-    //TABLEVIEW
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        
-        self.view.addSubview(searchResultsTableView)
-        searchResultsTableView.backgroundColor = #colorLiteral(red: 0.3725490196, green: 0.3294117647, blue: 0.6352941176, alpha: 1)
-        searchResultsTableView.isUserInteractionEnabled = true
-        searchResultsTableView.isScrollEnabled = true
-        searchResultsTableView.alwaysBounceVertical = true
+        searchResultsTableView.alpha = 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -64,8 +41,9 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         }
     }
     
+    // TABLEVIEW
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "DetailMovieVC") as! DetailMovieVC
         vc.titre = SEARCH_RESULT!.results[indexPath.row].title!
@@ -80,6 +58,7 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             let data = try? Data(contentsOf: image!)
             vc.image = UIImage(data: data!)!
         }
+        
         self.present(vc, animated: true , completion: nil)
     }
     
@@ -89,7 +68,7 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell") as? SearchTableViewCell
             cell!.movieTitle.text = SEARCH_RESULT!.results[indexPath.row].title
             cell!.movieTitle.sizeToFit()
-            cell!.movieNote.text = "\(SEARCH_RESULT!.results[indexPath.row].vote_average!)"
+            cell!.movieNote.text = "\(SEARCH_RESULT!.results[indexPath.row].vote_average!) / 10"
             cell!.movieNote.sizeToFit()
             
             if (SEARCH_RESULT!.results[indexPath.row].poster_path == nil) {
@@ -105,34 +84,31 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         return sell!
     }
     
-    //SEARCHBAR
+    // SEARCHBAR
     
     func updateSearchResults(for searchController: UISearchController) {
         guard searchController.searchBar.text != nil else {return}
-        //searchResultsTableView.reloadData()
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchActive = true
-        //searchResultsTableView.alpha = 1.0
         searchResultsTableView.isUserInteractionEnabled = true
-        
-        searchResultsTableView.snp.updateConstraints { (make) in
-           
-        }
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchActive = false;
-        searchController.isActive =  true
+        searchController.isActive = true
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.count < 2 {
             searchActive = false
-            //searchResultsTableView.reloadData()
+            searchResultsTableView.alpha = 0
+            searchResultsTableView.reloadData()
+            
         } else {
             searchActive = true
+            searchResultsTableView.alpha = 1
             searchMovie { (success) in
                 if success {
                     print("succeded request")
@@ -141,16 +117,17 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                     print(success.description)
                 }
             }
-            //searchResultsTableView.reloadData()
         }
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false;
         SEARCH_RESULT?.results.removeAll()
+        searchResultsTableView.alpha = 0
         searchResultsTableView.reloadData()
     }
     
+    // REQUEST
     
     func searchMovie(completion: @escaping CompletionHandler) {
         let search = SEARCH_MOVIE_URL + searchBar.text!

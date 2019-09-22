@@ -17,6 +17,9 @@ class SearchTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        movieImg.layer.cornerRadius = 2
+        movieImg.layer.borderWidth = 3
+        movieImg.layer.borderColor = UIColor.white.cgColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
